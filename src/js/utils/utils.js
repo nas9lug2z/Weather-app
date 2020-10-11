@@ -1,52 +1,60 @@
-import cloudy from "./../../images/cloudy.png";
-import rainy from "./../../images/rainy.png";
-import sunny from "./../../images/sunny.png";
-import stormy from "./../../images/stormy.png";
+import cloudy from "./../../images/cloudy.png";//
+import rainy from "./../../images/rainy.png";// + drizzle
+import sunny from "./../../images/sunny.png";//clear sky
+import stormy from "./../../images/stormy.png";//
 import windy from "./../../images/windy.png";
+import foggy from "./../../images/haze.png";
+// import snowy from "./../../images/snow.png";
 
-export const fahToKel = temp => {
-  return (temp + 459.67) * (5 / 9);
-};
 
-export const kelToCelcius = temp => {
-  return temp - 273.15;
-};
+// export const fahToKel = temp => {
+//   return (temp + 459.67) * (5 / 9);
+// };
 
-export const kelToFahrenheit = temp => {
-  return temp * (9 / 5) - 459.67;
-};
+// export const kelToCelcius = temp => {
+//   return temp - 273.15;
+// };
 
-export const toCelFah = (temp, unit) => {
-  if (unit === "us") {
-    return Math.round(kelToFahrenheit(temp));
-  }
-  return Math.round(kelToCelcius(temp));
-};
+// export const kelToFahrenheit = temp => {
+//   return temp * (9 / 5) - 459.67;
+// };
+
+// export const toCelFah = (temp, unit) => {
+//   if (unit === "us") {
+//     return Math.round(kelToFahrenheit(temp));
+//   }
+//   return Math.round(kelToCelcius(temp));
+// };
 
 export const getIcon = description => {
   switch (description) {
-    case "clear-day":
-    case "clear-night":
-      return sunny;
+    case "thunderstorm":
+    case "tornado":
+        return stormy;
 
     case "rain":
-      return rainy;
+    case "drizzle":
+        return rainy;
+
+    case "clear":
+      return sunny;
 
     case "snow":
       return rainy;
 
-    case "wind":
-      return windy;
+    case "mist":
+    case "smoke":
+    case "haze":
+    case "dust":
+    case "fog":
+    case "sand":
+    case "ash":
+    case "squall":
+      return foggy;
 
-    case "cloudy":
-    case "partly-cloudy-day":
-    case "partly-cloudy-night":
+    case "clouds":
       return cloudy;
 
-    case "thunderstorm":
-    case "hail":
-    case "tornado":
-      return stormy;
     default:
       return sunny;
   }
@@ -54,8 +62,7 @@ export const getIcon = description => {
 
 export const getAnimatedIcon = description => {
   switch (description) {
-    case "clear-day":
-    case "clear-night":
+    case "clear":
       return `
         <div class="icon sunny">
           <div class="sun">
@@ -65,6 +72,7 @@ export const getAnimatedIcon = description => {
       `;
 
     case "rain":
+    case "drizzle":
       return `
         <div class="icon rainy">
           <div class="cloud"></div>
@@ -85,8 +93,6 @@ export const getAnimatedIcon = description => {
 
     case "wind":
     case "cloudy":
-    case "partly-cloudy-day":
-    case "partly-cloudy-night":
       return `
         <div class="icon cloudy">
           <div class="cloud"></div>
@@ -95,7 +101,6 @@ export const getAnimatedIcon = description => {
       `;
 
     case "thunderstorm":
-    case "hail":
     case "tornado":
       return `
         <div class="icon thunder-storm">

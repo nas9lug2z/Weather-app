@@ -1,9 +1,4 @@
 import './../scss/main.scss';
-import { initializeSearch } from './modules/search';
-import { bindMultiEvents } from './modules/multi';
-import { bindUnitEvents } from './modules/units';
+import {initializeSearch} from './modules/search.js';
 
 initializeSearch();
-bindMultiEvents();
-bindUnitEvents();
-
