@@ -1,8 +1,9 @@
 import { getWeatherData } from './search';
+import { passUnits } from './search';
 
 const celcius = document.querySelector('.units__celcius');
 const fahrenheit = document.querySelector('.units__fahrenheit');
-let cityName = '';
+let cityName = 'Kiev';
 
 
 export const passCityName = city => {
@@ -14,8 +15,8 @@ const toggleUnits = (elem, units) => {
         if (!elem.matches(`.units__${units === 'metric' ? 'celcius' : 'fahrenheit'}--active`)) {
             celcius.classList.toggle('units__celcius--active');
             fahrenheit.classList.toggle('units__fahrenheit--active');
-            console.log(cityName);
             getWeatherData(cityName, units);
+            passUnits(units);
         }
     })
 }

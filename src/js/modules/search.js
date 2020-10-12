@@ -12,6 +12,12 @@ const $searchTrigger = document.querySelector('.search__trigger');
 const weatherAPIKey = '49b4a812166d6a8b0893fc1bb58dac83';
 const weatherEndPoint = 'https://api.openweathermap.org';
 let cityName = 'Kiev';
+let units = 'metric';
+
+//get current units from toggle module
+export const passUnits = data => {
+    units = data;
+}
 
 
 //search click
@@ -30,7 +36,7 @@ export const getUserInput = _ => {
         if (e.keyCode === 13) {
             e.preventDefault();
             cityName = $searchInput.value;
-            getWeatherData(cityName);
+            getWeatherData(cityName, units);
             passCityName(cityName);
             $searchInput.value = '';
         }
@@ -42,9 +48,9 @@ export const getWeatherData = async (city, units = 'metric') => {
     //--CURRENT
 
     const currentWeatherLink = `${weatherEndPoint}/data/2.5/weather?q=${city}&units=${units}&appid=${weatherAPIKey}`;
+    $spinner.classList.toggle('spinner-wrapper--active');
     const fetchCurrentData = await fetch(currentWeatherLink);
     const parsedCurrent = await fetchCurrentData.json();
-    console.log(parsedCurrent);
 
     //insert into DOM
     const currentWeather = parsedCurrent;
@@ -58,8 +64,8 @@ export const getWeatherData = async (city, units = 'metric') => {
 
     const dailyWeatherLink = await `${weatherEndPoint}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=current,minutely,hourly,alerts&appid=${weatherAPIKey}`;
     const fetchDailyData = await fetch(dailyWeatherLink);
+    $spinner.classList.toggle('spinner-wrapper--active');
     const parsedDaily = await fetchDailyData.json();
-    console.log(parsedDaily);
 
     //insert Daily into the DOM
     const dailyWeather = parsedDaily.daily;

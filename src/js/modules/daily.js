@@ -11,7 +11,6 @@ const getWeekday = dayNum => {
 
 export const setDailyWeather = (weatherData, units) => {
     let weather = weatherData;
-    console.log(weather);
 
     //clear up old info
     $list.innerHTML = '';
