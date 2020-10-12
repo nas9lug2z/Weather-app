@@ -1,4 +1,6 @@
+import { get } from 'core-js/fn/dict';
 import './../scss/main.scss';
-import {initializeSearch} from './modules/search.js';
+import {initializeSearch, getUserInput} from './modules/search.js';
 
 initializeSearch();
+getUserInput();
