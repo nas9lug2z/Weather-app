@@ -26,3 +26,18 @@ export const setCurrentWeather = (weatherData, units = 'metric') => {
     //render the icon
     $currentIcon.innerHTML = getAnimatedIcon(weather.weather[0].main.toLowerCase());
 }
+
+
+export const amplifyForecast = (weatherData, units = 'metric') => {
+    let weather = weatherData;
+
+    //render the dom
+    $currentDescription.innerHTML = capitalize(weather.weather[0].description);
+    $currentTemp.innerHTML = `${Math.round(weather.temp.max)}&#176;`;
+    $currentWind.innerHTML = `<span>${weather.wind_speed}</span> ${units === 'metric' ? 'mps' : 'mph'}`;
+    $currentHumidity.innerHTML = weather.humidity;
+    $currentPressure.innerHTML = weather.pressure;
+
+    //render the icon
+    $currentIcon.innerHTML = getAnimatedIcon(weather.weather[0].main.toLowerCase());
+}
