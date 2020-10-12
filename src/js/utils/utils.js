@@ -4,7 +4,7 @@ import sunny from "./../../images/sunny.png";//clear sky
 import stormy from "./../../images/stormy.png";//
 import windy from "./../../images/windy.png";
 import foggy from "./../../images/haze.png";
-// import snowy from "./../../images/snow.png";
+import snowy from "./../../images/snow.png";
 
 
 // export const fahToKel = temp => {
@@ -40,7 +40,7 @@ export const getIcon = description => {
       return sunny;
 
     case "snow":
-      return rainy;
+      return snowy;
 
     case "mist":
     case "smoke":
@@ -91,8 +91,7 @@ export const getAnimatedIcon = description => {
         </div>
       `;
 
-    case "wind":
-    case "cloudy":
+    case "clouds":
       return `
         <div class="icon cloudy">
           <div class="cloud"></div>
@@ -111,6 +110,15 @@ export const getAnimatedIcon = description => {
           </div>
         </div>
       `;
+    case "mist":
+    case "smoke":
+    case "haze":
+    case "dust":
+    case "fog":
+    case "sand":
+    case "ash":
+    case "squall":
+        return `<div class="icon"><img src="src/images/haze.svg" style="height: 5rem; padding-top: 3.5rem"></div>`;
     default:
       return `
         <div class="icon sunny">
