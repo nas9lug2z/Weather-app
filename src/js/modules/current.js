@@ -12,7 +12,7 @@ const $currentPressure = document.querySelector('.current__precipitation p span'
 const $currentIcon = document.querySelector('.current__icon');
 
 
-export const setCurrentWeather = (weatherData, units) => {
+export const setCurrentWeather = (weatherData, units = 'metric') => {
     let weather = weatherData;
 
     //render the dom
@@ -25,9 +25,4 @@ export const setCurrentWeather = (weatherData, units) => {
 
     //render the icon
     $currentIcon.innerHTML = getAnimatedIcon(weather.weather[0].main.toLowerCase());
-
 }
-
-
-
-//${getIcon(weather.weather[0].main)}

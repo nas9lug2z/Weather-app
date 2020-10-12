@@ -1,5 +1,6 @@
 import { firebrick } from "color-name";
-import { setCurrentWeather } from "./current";
+import { setCurrentWeather } from './current';
+import { setDailyWeather } from './daily'
 
 //cache the dom
 const $spinner = document.querySelector('.spinner-wrapper');
@@ -36,7 +37,7 @@ export const getUserInput = _ => {
 
 
 export const getWeatherData = async (city, units = 'metric') => {
-    //CURRENT
+    //--CURRENT
 
     const currentWeatherLink = `${weatherEndPoint}/data/2.5/weather?q=${city}&units=${units}&appid=${weatherAPIKey}`;
     const fetchCurrentData = await fetch(currentWeatherLink);
@@ -51,14 +52,15 @@ export const getWeatherData = async (city, units = 'metric') => {
     let lat = parsedCurrent.coord.lat;
     let lon = parsedCurrent.coord.lon;
 
-    //DAILY
+    //--DAILY
 
     const dailyWeatherLink = await `${weatherEndPoint}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=current,minutely,hourly,alerts&appid=${weatherAPIKey}`;
     const fetchDailyData = await fetch(dailyWeatherLink);
     const parsedDaily = await fetchDailyData.json();
     console.log(parsedDaily);
 
-    //insertDaily into the DOM
-    //...
+    //insert Daily into the DOM
+    const dailyWeather = parsedDaily.daily;
+    setDailyWeather(dailyWeather, units);
 
 }
