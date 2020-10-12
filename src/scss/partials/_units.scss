@@ -15,18 +15,25 @@
 }
 .units__fahrenheit {
   background: transparent;
+  opacity: 0.5;
 }
 .units__fahrenheit--active {
-  border: 2px solid white !important;
   opacity: 1;
 }
 .units__divider {
   opacity: 0.6;
+  font-size: 2rem;
 }
 .units__celcius {
   background: transparent;
+  opacity: 0.5;
 }
 .units__celcius--active {
-  border: 2px solid white !important;
   opacity: 1;
+}
+
+.units__celcius:hover,
+.units__fahrenheit:hover {
+  opacity: 1;
+  transition: 0.3s all ease;
 }

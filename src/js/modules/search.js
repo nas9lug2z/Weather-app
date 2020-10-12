@@ -1,6 +1,7 @@
 import { firebrick } from "color-name";
 import { setCurrentWeather } from './current';
-import { setDailyWeather } from './daily'
+import { setDailyWeather } from './daily';
+import { passCityName } from './units_toggle';
 
 //cache the dom
 const $spinner = document.querySelector('.spinner-wrapper');
@@ -10,7 +11,7 @@ const $searchTrigger = document.querySelector('.search__trigger');
 //variables
 const weatherAPIKey = '49b4a812166d6a8b0893fc1bb58dac83';
 const weatherEndPoint = 'https://api.openweathermap.org';
-let cityName = '';
+let cityName = 'Kiev';
 
 
 //search click
@@ -30,6 +31,7 @@ export const getUserInput = _ => {
             e.preventDefault();
             cityName = $searchInput.value;
             getWeatherData(cityName);
+            passCityName(cityName);
             $searchInput.value = '';
         }
     })
