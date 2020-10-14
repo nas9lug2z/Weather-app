@@ -1,7 +1,6 @@
-import { firebrick } from "color-name";
-import { setCurrentWeather } from './current';
-import { setDailyWeather } from './daily';
-import { passCityName } from './units_toggle';
+import { setCurrentWeather } from './current.js';
+import { setDailyWeather } from './daily.js';
+import { passCityName } from './units_toggle.js';
 
 //cache the dom
 const $spinner = document.querySelector('.spinner-wrapper');

@@ -1,5 +1,5 @@
-import { getWeatherData } from './search';
-import { passUnits } from './search';
+import { getWeatherData } from './search.js';
+import { passUnits } from './search.js';
 
 const celcius = document.querySelector('.units__celcius');
 const fahrenheit = document.querySelector('.units__fahrenheit');

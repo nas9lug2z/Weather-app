@@ -1,7 +1,6 @@
-import { identifier } from 'babel-types';
-import { getIcon} from './../utils/utils';
-import { getWeatherData } from './search';
-import { amplifyForecast } from './current'
+import { getIcon} from './../utils/utils.js';
+import { getWeatherData } from './search.js';
+import { amplifyForecast } from './current.js'
 
 const $list = document.querySelector('.wlist');
 

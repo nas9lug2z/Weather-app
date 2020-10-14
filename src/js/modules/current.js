@@ -1,5 +1,5 @@
-import { capitalize } from "./../utils/auxiliary"
-import { getAnimatedIcon } from "./../utils/utils"
+import { capitalize } from "./../utils/auxiliary.js"
+import { getAnimatedIcon } from "./../utils/utils.js"
 
 
 //cache the dom

@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="#" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="stylesheet" href="scss/main.css" type="text/css">
   <title>Weather App</title>
 </head>
 
@@ -49,17 +49,17 @@
             </div>
             <div class="current__others">
               <div class="current__wind">
-                <img src="<%= require('./images/wind.svg') %>" class="current__icon" width=30 height=30></img>
+                <img src="images/wind.svg" class="current__icon" width=30 height=30></img>
                 <p></p>
               </div>
               <div class="current__humidity">
                 <!-- <img src="./images/humidity.svg" class="current__icon" width=30 height=30></img> -->
-                <img src="<%= require('./images/humidity.svg') %>" class="current__icon" width=30 height=30></img>
+                <img src="images/humidity.svg" class="current__icon" width=30 height=30></img>
                 <p><span></span>%</p>
               </div>
               <div class="current__precipitation">
                 <!-- <img src="./images/precipitation.svg" class="current__icon" width=30 height=30></img> -->
-                <img src="<%= require('./images/pressure.svg') %>" class="current__icon" width=30 height=30></img>
+                <img src="images/pressure.svg" class="current__icon" width=30 height=30></img>
                 <p><span></span>hPa</p>
               </div>
             </div>
@@ -75,7 +75,7 @@
       </div>
     </div>
   </div>
-  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <script src="js/app.js" type="module"></script>
 </body>
 
 </html>
