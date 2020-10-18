@@ -20,7 +20,7 @@ export const setDailyWeather = (weatherData, units) => {
         let date = new Date(weather[i].dt*1000);
 
         $list.innerHTML += `<div class="wlist__item">
-        <img class="wlist__icon" src="/src/${getIcon(weather[i].weather[0].main.toLowerCase())}">
+        <img class="wlist__icon" src="${getIcon(weather[i].weather[0].main.toLowerCase())}">
         <div class="wlist__range">
         ${Math.round(weather[i].temp.max)}&#176/${Math.round(weather[i].temp.night)}&#176
         </div>
