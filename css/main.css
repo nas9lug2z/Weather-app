@@ -358,7 +358,7 @@ body {
     background: -webkit-gradient(linear, left bottom, left top, from(#FDD974), to(#CF6484));
     background: -o-linear-gradient(bottom, #FDD974, #CF6484);
     background: linear-gradient(to top, #FDD974, #CF6484);
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 }
 
@@ -380,7 +380,6 @@ body {
 @media screen and (max-width: 480px) {
   .weather {
     background: transparent;
-    height: 90vh;
   }
 }
 
