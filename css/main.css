@@ -340,7 +340,7 @@ body {
   background: #161616;
   color: #efefef;
   font-family: Cabin, sans-serif;
-  height: 100vh;
+  height: 90vh;
 }
 @media screen and (max-width: 480px) {
   body {

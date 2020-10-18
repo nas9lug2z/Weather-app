@@ -50,24 +50,40 @@ export const getWeatherData = async (city, units = 'metric') => {
     $spinner.classList.toggle('spinner-wrapper--active');
     const fetchCurrentData = await fetch(currentWeatherLink);
     const parsedCurrent = await fetchCurrentData.json();
+    const serverResponse = parsedCurrent.cod;
 
-    //insert into DOM
-    const currentWeather = parsedCurrent;
-    setCurrentWeather(currentWeather, units);
+    const check = async _ => {
+        if (serverResponse == 404) {
+            console.log('404!')
+            $spinner.classList.toggle('spinner-wrapper--active');
+            alert("City not found");
+        }
+        else {
+            //insert into DOM
+            const currentWeather = parsedCurrent;
+            setCurrentWeather(currentWeather, units);
+    
+            //get lat and long
+            let lat = parsedCurrent.coord.lat;
+            let lon = parsedCurrent.coord.lon;
+    
+            //--DAILY
+    
+            const dailyWeatherLink = await `${weatherEndPoint}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=current,minutely,hourly,alerts&appid=${weatherAPIKey}`;
+            const fetchDailyData = await fetch(dailyWeatherLink);
+            $spinner.classList.toggle('spinner-wrapper--active');
+            const parsedDaily = await fetchDailyData.json();
+    
+            //insert Daily into the DOM
+            const dailyWeather = parsedDaily.daily;
+            setDailyWeather(dailyWeather, units);
+        }
+    }
+    console.log(serverResponse);
 
-    //get lat and long
-    let lat = parsedCurrent.coord.lat;
-    let lon = parsedCurrent.coord.lon;
+    const checking = await check();
 
-    //--DAILY
 
-    const dailyWeatherLink = await `${weatherEndPoint}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=current,minutely,hourly,alerts&appid=${weatherAPIKey}`;
-    const fetchDailyData = await fetch(dailyWeatherLink);
-    $spinner.classList.toggle('spinner-wrapper--active');
-    const parsedDaily = await fetchDailyData.json();
-
-    //insert Daily into the DOM
-    const dailyWeather = parsedDaily.daily;
-    setDailyWeather(dailyWeather, units);
+   
 
 }
