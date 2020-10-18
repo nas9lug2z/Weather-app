@@ -340,7 +340,7 @@ body {
   background: #161616;
   color: #efefef;
   font-family: Cabin, sans-serif;
-  height: 90vh;
+  height: 100%;
 }
 @media screen and (max-width: 480px) {
   body {
@@ -834,6 +834,7 @@ body {
 @media screen and (max-width: 768px) {
   .wlist {
     padding: 2rem 4rem;
+    width: 100%;
   }
 }
 .wlist .icon:after {
