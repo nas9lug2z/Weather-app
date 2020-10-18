@@ -1,0 +1,39 @@
+.units {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  button {
+    border-radius: 2px;
+    color: white;
+    outline: 0;
+    border: 2px solid transparent;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.units__fahrenheit {
+  background: transparent;
+  opacity: 0.5;
+}
+.units__fahrenheit--active {
+  opacity: 1;
+}
+.units__divider {
+  opacity: 0.6;
+  font-size: 2rem;
+}
+.units__celcius {
+  background: transparent;
+  opacity: 0.5;
+}
+.units__celcius--active {
+  opacity: 1;
+}
+
+.units__celcius:hover,
+.units__fahrenheit:hover {
+  opacity: 1;
+  transition: 0.3s all ease;
+}

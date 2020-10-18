@@ -1,10 +1,10 @@
-const cloudy = "./images/cloudy.png";//
-const rainy = "./images/rainy.png";// + drizzle
-const sunny = "./images/sunny.png";//clear sky
-const stormy = "./images/stormy.png";//
-const windy = "./images/windy.png";
-const foggy = "./images/haze.png";
-const snowy = "./images/snow.png";
+const cloudy = "./../../images/cloudy.png";//
+const rainy = "./../../images/rainy.png";// + drizzle
+const sunny = "./../../images/sunny.png";//clear sky
+const stormy = "./../../images/stormy.png";//
+const windy = "./../../images/windy.png";
+const foggy = "./../../images/haze.png";
+const snowy = "./../../images/snow.png";
 
 
 // export const fahToKel = temp => {
